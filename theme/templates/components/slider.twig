@@ -1,0 +1,25 @@
+{% if slides is not defined %}
+  {% set slides = [null, null, null, null] %}
+{% endif %}
+  {% set slides = [null, null, null, null] %}
+
+<div class="slider-wrapper" data-slider-gutter="true" data-slider-auto-width="true" data-slider-items="1">
+  <div class="slider-container">
+
+    {% for slide in slides %}
+
+      <div class="slide">
+        {% include "components/image.twig" with {
+          image: slide,
+          ratio: 'strict',
+          size: 'landscape'
+        } %}
+      </div>
+
+    {% endfor %}
+  </div>
+
+  <div class="slider-prev focus:outline-none"></div>
+  <div class="slider-next focus:outline-none"></div>
+
+</div>

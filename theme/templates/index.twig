@@ -1,0 +1,38 @@
+{# Default page #}
+
+{% extends "core/base.twig" %}
+
+{% block main %}
+
+  <section class="section">
+    <div class="container">
+
+      <div class="hero header-offset">
+        <h1>{{ site.title }}</h1>
+      </div>
+
+    </div>
+  </section>
+
+<div class="section">
+<div class="">
+  {% include "components/slider.twig" %}
+</div>
+</div>
+
+
+  {% for post in posts %}
+
+    <section class="section">
+      <div class="container">
+
+        <a href="{{ post.link }}">
+          <h2>{{ post.title }}</h2>
+        </a>
+
+      </div>
+    </section>
+
+  {% endfor %}
+
+{% endblock %}

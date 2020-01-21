@@ -1,0 +1,45 @@
+figure {
+  @apply relative overflow-hidden;
+
+  img {
+    @apply block w-full h-auto;
+
+    /* purgecss start ignore */
+    &.lazy {
+      transform: scale(1.05);
+      filter: blur(20px);
+      transition: transform $short ease;
+
+      &.loaded {
+        transform: scale(1);
+        filter: none;
+      }
+    }
+    /* purgecss end ignore */
+  }
+
+  &.strict {
+    img {
+      @apply absolute w-full h-full;
+      object-fit: cover;
+    }
+
+    &.portrait::after {
+      content: '';
+      display: block;
+      padding-top: 150%;
+    }
+
+    &.landscape::after {
+      content: '';
+      display: block;
+      padding-top: 66.66667%;
+    }
+
+    &.square::after {
+      content: '';
+      display: block;
+      padding-top: 66.66667%;
+    }
+  }
+}

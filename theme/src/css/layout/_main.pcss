@@ -1,0 +1,17 @@
+#swup {
+  @apply bg-white min-h-screen relative;
+  flex: 1 0 auto;
+}
+
+/* purgecss start ignore */
+.transition-fade {
+  transition: 0.4s;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+  transform: translateY(10vh);
+}
+/* purgecss end ignore */

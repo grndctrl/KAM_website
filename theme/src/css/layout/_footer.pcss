@@ -1,0 +1,13 @@
+.footer-main {
+  @apply relative w-full;
+  flex-shrink: 0;
+
+  &.pinned {
+    @apply fixed bottom-0;
+    .btn-close {
+      pointer-events: all;
+      opacity: 1;
+      transition: $short ease;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{# About page #}
+
+{% extends "core/base.twig" %}
+
+{% set main_class = ['header-offset'] %}
+
+{% block main %}
+
+  <section class="section">
+    <div class="container">
+
+      <h1>{{ post.title }}</h1>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="row">
+        <div class="col w-10/12 mx-auto">
+
+          {% include "components/image.twig" with {
+            image : post.meta("image")
+          } %}
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      {% include "components/slider.twig" with {
+        slides : post.meta("slider")
+      } %}
+
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

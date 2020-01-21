@@ -1,0 +1,26 @@
+{% if size is not defined %}
+  {% set size = "landscape" %}
+{% endif %}
+{% if ratio is not defined %}
+  {% set ratio = "original" %}
+{% endif %}
+
+{% if image is not defined  or image == null %}
+
+  <figure class="{{ size }} {{ ratio }} {{ figureClass|join(' ') }}">
+    <img class="lazy" src="https://dummyimage.com/100x100/646480/808096.png" data-src="https://dummyimage.com/2560x1080/646480/808096.png" alt="placeholder">
+  </figure>
+
+{% else %}
+
+  {% set lazyload = image | get_timber_image_responsive(size, {
+    lazy_srcset: true,
+    lazy_src: true
+  }) %}
+  {% set lazypreload = image | get_timber_image("lazy") %}
+
+  <figure class="{{ size }} {{ ratio }} {{ figureClass|join(' ') }}">
+    <img class="lazy" {{ lazypreload}} {{ lazyload }}>
+  </figure>
+
+{% endif %}
