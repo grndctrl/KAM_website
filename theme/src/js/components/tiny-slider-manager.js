@@ -13,6 +13,11 @@ class TinySliderManager extends CoreModule {
 
       let options = {
         autoWidth: wrapper.getAttribute("data-slider-auto-width") === "true" ? true : false,
+        loop: wrapper.getAttribute("data-slider-loop") === "true" ? true : false,
+        interactive: wrapper.getAttribute("data-slider-interactive") === "false" ? false : true,
+        autoplay: wrapper.getAttribute("data-slider-autoplay") > 0 ? true : false,
+        autoplayTimeout: wrapper.getAttribute("data-slider-autoplay") > 0 ? wrapper.getAttribute("data-slider-autoplay") : 2000,
+        center: wrapper.getAttribute("data-slider-center") === "false" ? false : true,
         mode:
           wrapper.getAttribute("data-slider-mode") != null && wrapper.getAttribute("data-slider-mode") != ""
             ? wrapper.getAttribute("data-slider-mode")
@@ -25,8 +30,6 @@ class TinySliderManager extends CoreModule {
 
       let nextButton = wrapper.querySelector(".slider-next") != null ? wrapper.querySelector(".slider-next") : false
 
-      console.log("TCL: TinySliderManager -> init -> wrapper.querySelector('.slider-prev')", wrapper.querySelector(".slider-prev"))
-
       const slider = tns({
         container: container,
         mode: options.mode,
@@ -34,19 +37,29 @@ class TinySliderManager extends CoreModule {
         speed: options.speed,
         gutter: config.gutter,
         autoWidth: options.autoWidth,
-        controls: true,
-        prevButton: prevButton,
-        nextButton: nextButton,
-        loop: false,
-        center: true,
+        autoplay: options.autoplay,
+        autoplayTimeout: options.autoplayTimeout,
+        controls: false,
+        loop: options.loop,
+        center: options.center,
         nav: false,
         autoplayButtonOutput: false,
-        touch: true,
-        mouseDrag: true,
+        touch: options.interactive,
+        mouseDrag: options.interactive,
         onInit: () => {
           wrapper.style.opacity = 1
         }
       })
+
+      if (nextButton) {
+        slider.nextButton = nextButton
+        slider.nextButton.addEventListener('click', this.next.bind(slider))
+      }
+
+      if (prevButton) {
+        slider.prevButton = prevButton
+        slider.prevButton.addEventListener('click', this.prev.bind(slider))
+      }
 
       this.sliders.push(slider)
     })
@@ -54,7 +67,26 @@ class TinySliderManager extends CoreModule {
     return super.init()
   }
 
+  prev() {
+    this.goTo('prev')
+  }
+
+  next() {
+    this.goTo('next')
+    
+  }
+
   destroy() {
+    this.sliders.forEach(slider => {
+      if (slider.prevButton != undefined) {
+        slider.prevButton.removeEventListener('click', this.prev.bind(slider))
+      }
+
+      if (slider.nextButton != undefined) {
+        slider.nextButton.removeEventListener('click', this.next.bind(slider))
+      }
+    })
+
     return super.destroy()
   }
 }

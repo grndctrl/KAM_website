@@ -25,7 +25,6 @@ class Core {
     app.$on("swup:content-replaced", () => {
       this.modules.forEach((module) => {
         if (module.reinit) {
-          console.log("TCL: Core -> init -> module", module)
           module.destroy()
           module.init(module.options)
         }

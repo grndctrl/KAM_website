@@ -1,0 +1,17 @@
+{% if sectionClass is not defined %}
+  {% set sectionClass = [""] %}
+{% endif %}
+
+{% if slides is not defined %}
+  {% set slides = ["", "", ""] %}
+{% endif %}
+
+<section class="section-sm {{ sectionClass|join(' ') }}">
+  <div class="container">
+
+    {% include "components/slider.twig" with {
+      slides: slides
+    } %}
+
+  </div>
+</section>
