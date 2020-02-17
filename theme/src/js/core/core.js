@@ -3,6 +3,8 @@ import throttle from "lodash/throttle"
 
 import Vue from "vue"
 import App from "./../../vue/core.vue"
+import { scrollController } from "./scroll-controller"
+
 
 class Core {
   constructor() {
@@ -44,6 +46,15 @@ class Core {
         app.$emit("core:window-resized", event)
       }, 250)
     )
+
+    window.addEventListener(
+      "popstate",
+      throttle((event) => {
+        app.$emit("core:popstate", event)
+      }, 250)
+    )
+
+    app.$emit('core:init')
   }
 
   attach(module, options = {}, reinit = false) {

@@ -1,0 +1,41 @@
+{% if slides is not defined %}
+  {% set slides = [null, null, null, null] %}
+{% endif %}
+{% set slides = [null, null, null, null] %}
+
+<section class="section relative slider-skipper {{ section_class|join(' ') }} anim-move-in">
+
+  <div class="container show-all">
+        
+        
+    <div class="row">
+      <div class="col w-full lg:w-10/12 mx-auto relative">
+          
+        <div class="koffie-rotator">
+          {% include "svg/koffie.twig" %}
+        </div>
+
+        <div class="skipper swiper-container" swiper-slides-per-view="1" swiper-loop="true" swiper-effect="fade">
+          
+          <div class="swiper-wrapper">
+
+            {% for slide in fields.images %}
+
+              <div class="swiper-slide">
+                {% include "components/image.twig" with {
+                  image : slide.image,
+                  ratio: "strict",
+                  size: "landscape"
+                } %}
+              </div>
+
+            {% endfor %}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

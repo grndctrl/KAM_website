@@ -1,0 +1,35 @@
+{# About page #}
+
+{% extends "core/base.twig" %}
+
+{% set main_class = ['header-offset', 'page-white'] %}
+
+{% block main %}
+
+<div class="anim-move-in opacity-0" data-anim-delay="1000">
+
+<section class="section h1-heading {{ section_class|join(' ') }}" {{ attributes }}>
+  <div class="container">
+
+    <div class="row">
+      <div class="col w-full mx-auto">
+
+        <h1 class="font-h1 text-center anim-text-in anim-text-in-home">
+        
+          {{ post.meta('opening_text') }}
+
+        </h1>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  {{ post.content }}
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

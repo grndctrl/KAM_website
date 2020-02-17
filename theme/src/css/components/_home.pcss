@@ -1,0 +1,17 @@
+.facebook-event {
+  @apply border-b border-white py-4;
+  
+  &:first-of-type {
+    @apply border-t;
+  }
+}
+
+@screen lg {
+  .facebook-event {
+    @apply border-0 pt-4 pb-0;
+    
+    &:first-of-type {
+      @apply border-0 pt-0;
+    }
+  }
+}

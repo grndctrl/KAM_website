@@ -1,14 +1,43 @@
 {% extends "core/base.twig" %}
 
+{% set main_class = ['page-white'] %}
+{% set spacer_class = ['bg-white'] %}
+
 {% block main %}
 
-  <section class="section">
-    <div class="container">
+  <section class="section header-offset bg-blue text-white header-color-changer" data-from="blue" data-to="white">
+    <div class="container show-all">
 
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.content }}</p>
-
+      <div class="row">
+        <div class="col w-full md:w-9/12 lg:w-6/12 lg:ml-1/12">
+          <h3 class="font-h3">{{ post.title }}</h3>
+          <p class="font-label font-normal uppercase pt-2">
+            {{ post.date|date('d-m-Y') }}
+            {% if post.meta("post_author") != "" %}
+              &mdash; door
+              {{ post.meta('post_author') }}</p>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </section>
+  <section class="section relative pt-0">
+    <div class="container relative z-20">
+      <div class="w-full verhaal-image">
+        {% include "components/image.twig" with {
+          image : post.thumbnail
+        } %}
+      </div>
+    </div>
+          <div class="w-full absolute inset-0 z-10">
+        <div class="bg-blue w-full h-6/12"></div>
+        <div class="header-color-changer" data-from="white" data-to="blue"></div>
+      </div>
+  </section>
 
+  {{ post.content }}
+
+  {% include "blocks/common/verhalen-swiper-all.twig" with { 
+    skip: post.id
+  } %}
 {% endblock %}

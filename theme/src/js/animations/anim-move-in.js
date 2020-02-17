@@ -1,10 +1,10 @@
-import anime from 'animejs'
-import { CoreScrollScene, CoreEventListener } from '../core'
-import { AnimModule } from './anim-module'
+import anime from "animejs"
+import { CoreScrollScene, CoreEventListener } from "../core"
+import { AnimModule } from "./anim-module"
 
 class AnimMoveIn extends AnimModule {
   init(options) {
-    this.target = options.target ? options.target : '.anim-move-in'
+    this.target = options.target ? options.target : ".anim-move-in"
 
     this.initScenes()
 
@@ -16,15 +16,12 @@ class AnimMoveIn extends AnimModule {
   initEvents() {
     let events = []
     events.push(
-      new CoreEventListener(
-        'anim-reinit',
-        (event) => {
-          this.destroy()
-          this.initScenes()
-          this.initEvents()
-          super.init()
-        }
-      )
+      new CoreEventListener("anim-reinit", (event) => {
+        this.destroy()
+        this.initScenes()
+        this.initEvents()
+        super.init()
+      })
     )
     super.eventListeners = events
   }
@@ -36,8 +33,18 @@ class AnimMoveIn extends AnimModule {
     elements.forEach((element) => {
       let options = this.getOptionsFromAttributes(element)
 
-      if (!element.classList.contains('anim-complete')) {
+      if (!element.classList.contains("anim-complete")) {
         element.style.opacity = 0
+      }
+
+      if (element) {
+        let page = document.querySelector("#swup")
+        
+        if (page.classList.contains("page-home")) {
+          if (element.classList.contains("slider-skipper")) {
+            options.delay = 2000
+          }
+        }
       }
 
       scenes.push(
@@ -45,29 +52,29 @@ class AnimMoveIn extends AnimModule {
           triggerElement: options.trigger,
           triggerHook: options.hook / 100,
           enter: (event) => {
-            if (!element.classList.contains('anim-complete')) {
-              if (options.direction === 'up' || options.direction === 'down') {
+            if (!element.classList.contains("anim-complete")) {
+              if (options.direction === "up" || options.direction === "down") {
                 anime({
                   targets: element,
-                  translateY: [options.distance * (options.direction === 'up' ? 1 : -1), 0],
+                  translateY: [options.distance * (options.direction === "up" ? 1 : -1), 0],
                   opacity: [0, 1],
-                  easing: 'easeOutCirc',
+                  easing: "easeOutCirc",
                   duration: options.duration,
                   delay: options.delay,
                   complete: () => {
-                    element.classList.add('anim-complete')
+                    element.classList.add("anim-complete")
                   }
                 })
               } else {
                 anime({
                   targets: element,
-                  translateX: [distance * (direction === 'left' ? 1 : -1), 0],
+                  translateX: [distance * (direction === "left" ? 1 : -1), 0],
                   opacity: [0, 1],
-                  easing: 'easeOutCirc',
+                  easing: "easeOutCirc",
                   duration: duration,
                   delay: delay,
                   complete: () => {
-                    element.classList.add('anim-complete')
+                    element.classList.add("anim-complete")
                   }
                 })
               }

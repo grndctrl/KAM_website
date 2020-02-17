@@ -8,33 +8,77 @@
   width: calc(((min(100vw, $site-max-width) - (2 * $site-offset) + $gutter) * (10 / 12)) - $gutter);
 }
 
-.slider-wrapper[data-slider-gutter="true"] {
-  .slide {
-    width: calc((((min(100vw, $site-max-width) - (2 * $site-offset)) + $gutter) * (10 / 12)));
-  }
-}
-
 .slider-wrapper {
   @apply relative opacity-0;
   transition: opacity $short ease;
 
-  .slider-prev,
-  .slider-next {
-    @apply absolute h-full top-0 flex items-center opacity-0 cursor-auto;
-    width: calc((100vw - (((min(100vw, $site-max-width) - (2 * $site-offset)) + $gutter) * (10 / 12)) - $gutter) / 2);
-    transition: opacity $short ease;
+  &.initialized {
+    @apply opacity-100;
+  }
+}
 
-    &:not([aria-disabled="true"]) {
-
-      @apply opacity-100 cursor-pointer;
-      /* @apply opacity-0 cursor-auto; */
+.slider-basic {
+  .slider-wrapper[data-slider-gutter="true"] {
+    .slide {
+      width: calc((((min(100vw, $site-max-width) - (2 * $site-offset)) + $gutter) * (8 / 12)));
     }
   }
 
-  .slider-prev {
-    left: 0;
+  .slider-wrapper {
+    .slider-prev,
+    .slider-next {
+      @apply absolute h-full top-0 flex items-center opacity-0 cursor-auto;
+      width: calc((100vw - (((min(100vw, $site-max-width) - (2 * $site-offset)) + $gutter) * (8 / 12)) - $gutter) / 2);
+      transition: opacity $short ease;
+
+      &:not([aria-disabled="true"]) {
+
+        @apply opacity-100 cursor-pointer;
+      }
+    }
+
+    .slider-prev {
+      left: 0;
+    }
+    .slider-next {
+      right: 0;
+    }
   }
-  .slider-next {
-    right: 0;
+}
+
+.slider-extended {
+  .slider-wrapper[data-slider-gutter="true"] {
+    .slide {
+      width: calc((((min(100vw, $site-max-width) - (2 * $site-offset)) + $gutter) * (5 / 12)));
+    }
+  }
+
+  .slider-container {
+    margin-left: calc((100vw - (((min(100vw, $site-max-width) - (2 * $site-offset)) + $gutter) * (10 / 12)) - $gutter) / 2 + $gutter);
+  }
+
+  .slider-wrapper {
+    .slider-prev,
+    .slider-next {
+      @apply absolute h-full top-0 flex items-center opacity-0 cursor-auto;
+      width: calc((100vw - (((min(100vw, $site-max-width) - (2 * $site-offset)) + $gutter) * (10 / 12)) - $gutter) / 2);
+      transition: opacity $short ease;
+
+      &:not([aria-disabled="true"]) {
+
+        @apply opacity-100 cursor-pointer;
+      }
+
+      &.disabled {
+        @apply opacity-0 cursor-default;
+      }
+    }
+
+    .slider-prev {
+      left: 0;
+    }
+    .slider-next {
+      right: 0;
+    }
   }
 }

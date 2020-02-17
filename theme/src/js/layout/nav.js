@@ -4,15 +4,16 @@ import { CoreEventListener } from '../core/core-event'
 
 class Nav extends CoreModule {
   init(options) {
-    this.element = options.element
+    this.element = document.querySelector('.nav-main')
+    this.header = document.querySelector('.header-main')
     this.addEventListeners()
 
     this.toggles = document.querySelectorAll('.toggle-menu')
     this.toggles.forEach((toggle) => {
-      toggle.addEventListener('click', this.onToggle)
+      toggle.addEventListener('click', this.onToggle.bind(toggle))
     })
 
-    this.closers = document.querySelectorAll('.nav-menu-item')
+    this.closers = document.querySelectorAll('.close-menu')
     this.closers.forEach((closer) => {
       closer.addEventListener('click', this.onClose)
     })
@@ -33,6 +34,7 @@ class Nav extends CoreModule {
   }
 
   onToggle(event) {
+    this.classList.add('triggered')
     app.$emit('nav:toggle-menu', event)
   }
 
@@ -44,14 +46,14 @@ class Nav extends CoreModule {
     let events = []
     
     events.push(
-      new CoreEventListener('toggle-menu', () => {
+      new CoreEventListener('nav:toggle-menu', () => {
         this.toggleMenu()
       })
     )
 
     
     events.push(
-      new CoreEventListener('close-menu', () => {
+      new CoreEventListener('nav:close-menu', () => {
         this.closeMenu()
       })
     )
@@ -75,6 +77,7 @@ class Nav extends CoreModule {
 
     if (this.element.classList.contains('active')) {
       this.element.classList.remove('active')
+      this.header.classList.remove('nav-active')
       this.element.classList.add('animating')
       setTimeout(() => {
         this.element.classList.remove('animating')
@@ -89,12 +92,14 @@ class Nav extends CoreModule {
 
     if (this.element.classList.contains('active')) {
       this.element.classList.remove('active')
+      this.header.classList.remove('nav-active')
       this.element.classList.add('animating')
       setTimeout(() => {
         this.element.classList.remove('animating')
       }, 400)
     } else {
       this.element.classList.add('active')
+      this.header.classList.add('nav-active')
       this.element.classList.add('animating')
       setTimeout(() => {
         this.element.classList.remove('animating')

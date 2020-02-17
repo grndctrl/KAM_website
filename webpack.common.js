@@ -82,9 +82,10 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.ts'],
+    extensions: ['.js', '.ts', '.pcss'],
     alias: {
-      '@': path.resolve(__dirname, 'theme', 'src')
+      'src': path.resolve(__dirname, 'theme', 'src'),
+      'root': path.resolve(__dirname, 'theme', 'src')
     }
   },
 

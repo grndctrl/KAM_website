@@ -1,4 +1,9 @@
-html ,
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
 body {
   @apply text-black bg-white font-sans;
 }
@@ -11,6 +16,32 @@ a:visited {
   color: inherit;
 }
 
-a:hover {
-  @apply underline;
+.text-quote {
+  &::before {
+    content: '“';
+  }
+
+  &::after {
+    content: '';
+  }
 }
+
+blockquote {
+  quotes: "“" "”";
+  &:before {
+    content: open-quote;
+  }
+
+  &:after {
+    content: close-quote;
+  }
+}
+
+/* purgecss start ignore */
+.hover\:text-orange {
+  &:hover {
+    color: #FF4D0A;
+  }
+}
+/* purgecss end ignore */
+

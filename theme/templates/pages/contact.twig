@@ -1,0 +1,81 @@
+{# About page #}
+
+{% extends "core/base.twig" %}
+
+{% set main_class = ['header-offset', 'page-yellow'] %}
+
+{% block main %}
+  {# {% include "blocks/common/text-h1.twig" %}
+
+  <section class="section font-paragraph">
+    <div class="container lg:pb-32">
+      <div class="row flex-wrap">
+        <div class="col w-full lg:w-4/12 lg:ml-2/12 pb-8">
+          <p class="text-center">
+            Bar & shop<br>
+            Boschstraat 31<br>
+            4811 GA, Breda
+          </p>
+        </div>
+        <div class="col w-full lg:w-4/12 lg:mr-2/12 pb-8">
+          <p class="text-center">
+            Contact<br>
+            076 888 8708<br>
+            info@kamu-breda.nl
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row flex-wrap">
+        <div class="col w-full lg:w-4/12 lg:ml-2/12 pb-8">
+          <p class="text-center">
+            Follow us<br>
+            instagram<br>
+            facebook
+          </p>
+        </div>
+        <div class="col w-full lg:w-4/12 lg:mr-2/12 pb-8">
+          <p class="text-center">
+            Openingstijden<br>
+            Ma-Vr: 09:00 - 17:30<br>
+            Zaterdag: 09:00 - 17:00<br>
+            Zondag: 11:00 - 17:00
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include "blocks/common/image.twig" %}
+
+  {% include "blocks/common/text-h1.twig" %} #}
+
+  {{ post.content }}
+
+  <section class="section h1-heading">
+    <div class="container">
+
+      <div class="row">
+        <div class="col w-full mx-auto">
+
+          <h1 class="font-h1 text-center">
+          
+            {{ post.meta('bottom_text') }}
+
+          </h1>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .footer-main {
+      display: none;
+    }
+  </style>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

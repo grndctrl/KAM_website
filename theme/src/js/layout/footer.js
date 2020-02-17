@@ -24,8 +24,6 @@ class Footer extends CoreModule {
     )
     super.scrollScenes = scenes
 
-    console.log(scenes)
-
     return super.init()
   }
 

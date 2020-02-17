@@ -1,13 +1,122 @@
 /* Admin styles */
+@import './fonts.css';
 
-.acf-input-wrap {
-  height: auto !important;
+.edit-post-visual-editor.editor-styles-wrapper {
+  font-family: sans-serif;
+
+.font-h1 {
+  text-transform: uppercase;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 70px;
+  letter-spacing: -0.25px;
+  line-height: 55px;
+}
+.font-h2 {
+  text-transform: uppercase;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 45px;
+  letter-spacing: 0;
+  line-height: 37.5px;
+}
+.font-h3 {
+  text-transform: uppercase;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 40px;
+  letter-spacing: 0.2px;
+  line-height: 34px;
+}
+.font-h4 {
+  text-transform: uppercase;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 35px;
+  letter-spacing: 0.2px;
+  line-height: 30px;
+}
+.font-h5 {
+  text-transform: uppercase;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: 40px;
+}
+.font-menu {
+  text-transform: uppercase;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 20px;
+  letter-spacing: 1.11px;
+}
+.font-paragraph {
+  font-family: GTAmerica-Extended;
+  font-size: 24px;
+  letter-spacing: -0.6px;
+  line-height: 34px;
+}
+.font-body {
+  font-family: GTAmerica-Extended;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  line-height: 26px;
+}
+.font-label {
+  font-family: GTAmerica-Extended;
+  font-size: 16px;
+  letter-spacing: -0.4px;
+  line-height: 17.6px;
+}
+.font-small {
+  font-family: GTAmerica-Extended;
+  font-size: 12px;
+  letter-spacing: -0.02667em;
+  line-height: 2.5em;
 }
 
-.acf-url input[type="url"] {
-  padding-left: 25px !important;
-}
 
-.acf-icon.small, .acf-icon.-small {
-  padding-top: 8px !important;
+/* @screen md { */
+  .font-h1 {
+    font-size: 140px;
+    letter-spacing: -0.00357em;
+    line-height: 0.78571em;
+    text-align: center;
+  }
+  .font-h2 {
+    font-size: 110px;
+    letter-spacing: -0.00364em;
+    line-height: 0,86364em;
+  }
+  .font-h3 {
+    font-size: 75px;
+    letter-spacing: -0.00267em;
+    line-height: 0.90667em;
+  }
+  .font-h4 {
+    font-size: 50px;
+    letter-spacing: 0;
+    line-height: 0.96em;
+  }
+  .font-h5 {
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: 1em;
+  }
+  .font-menu {
+    font-size: 20px;
+    letter-spacing: 0.0555em;
+    line-height: 0.725em;
+    height: 0.725em;
+  }
+  .font-paragraph {
+    font-size: 30px;
+    letter-spacing: -0.02667em;
+    line-height: 1.5em;
+  }
+  .font-body {
+    font-size: 24px;
+    letter-spacing: -0.025em;
+    line-height: 1.58333em;
+  }
+  .font-label {
+    font-size: 20px;
+    letter-spacing: -0.025em;
+    line-height: 1.1em;
+  }
 }

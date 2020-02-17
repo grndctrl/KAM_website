@@ -1,0 +1,36 @@
+<section class="section pt-0 {{ section_class|join(' ') }}">
+  <div class="container">
+
+        <div class="swiper quote-swiper relative" swiper-slides-per-view="1" swiper-effect="slide" swiper-loop="true">
+ 
+          <div class="quote-container swiper-container">
+            <div class="swiper-wrapper">
+
+              {% for slide in fields.quote_slides %}
+
+                <div class="swiper-slide relative pt-24">
+                  <div class="row">
+                    <div class="col w-full md:w-10/12 lg:w-full mx-auto relative">
+                      <blockquote class="font-paragraph">{{ slide.text }}</blockquote>
+                      <p class="font-label pt-8 lg:pt-12">{{ slide.name }}</p>
+                    </div>
+                  </div>
+                </div>
+
+              {% endfor %}
+
+            </div>
+          </div>
+
+          <div class="quote-symbol absolute top-0 left-0 lg:ml-1/12">“</div>
+
+          <div class="swiper-next focus:outline-none">
+            {% include "components/button-next.twig" %}
+          </div>
+
+          <div class="swiper-bullets pt-8"></div>
+        </div>
+
+
+  </div>
+</section>

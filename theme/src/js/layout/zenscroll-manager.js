@@ -19,7 +19,6 @@ class ZenscrollManager extends CoreModule {
         console.error('zenscrollManager: scroll target not found')
       }
     } else if (typeof(target) === 'object') {
-      console.log('typeof(target) === object', target)
       try {
         zenscroll.to(target)
       }

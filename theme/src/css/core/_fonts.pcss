@@ -1,21 +1,299 @@
-h1 {
-  @apply text-4xl;
+.font-h1 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 70px;
+  letter-spacing: -0.25px;
+  line-height: 55px;
+}
+.font-h2 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 45px;
+  letter-spacing: 0;
+  line-height: 37.5px;
+}
+.font-h3 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 40px;
+  letter-spacing: 0.2px;
+  line-height: 34px;
+}
+.font-h4 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 35px;
+  letter-spacing: 0.2px;
+  line-height: 30px;
+}
+.font-h5 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: 40px;
+}
+.font-menu {
+  @apply uppercase;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: 45px;
+  line-height: 37px;
+  letter-spacing: 0;
+}
+.font-paragraph {
+  font-family: GTAmerica-Extended;
+  font-size: 24px;
+  letter-spacing: -0.6px;
+  line-height: 34px;
+}
+.font-body {
+  font-family: GTAmerica-Extended;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  line-height: 26px;
+}
+.font-label {
+  @apply uppercase font-medium;
+  font-family: GTAmerica-Extended;
+  font-size: 16px;
+  letter-spacing: -0.4px;
+  line-height: 17.6px;
+  &.font-normal {
+    font-weight: 400;
+  }
+}
+.font-small {
+  font-family: GTAmerica-Extended;
+  font-size: 12px;
+  letter-spacing: -0.02667em;
+  line-height: 2.5em;
+}
+.font-footer {
+  font-family: GTAmerica-Extended;
+  font-size: 16px;
+  letter-spacing: -0.4px;  
+  p {
+    line-height: 1.5em;
+  }
+}
+/* 
+.font-h1 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: calc(100vw * 70 / 375);
+  letter-spacing: -0.25px;
+  line-height: calc(100vw * 55 / 375);
+}
+.font-h2 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: calc(100vw * 45 / 375);
+  letter-spacing: 0;
+  line-height: calc(100vw * 37.5 / 375);
+}
+.font-h3 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: calc(100vw * 40 / 375);
+  letter-spacing: 0.2px;
+  line-height: calc(100vw * 34 / 375);
+}
+.font-h4 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: calc(100vw * 35 / 375);
+  letter-spacing: 0.2px;
+  line-height: calc(100vw * 30 / 375);
+}
+.font-h5 {
+  @apply uppercase overflow-hidden pb-3;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: calc(100vw * 40 / 375);
+  letter-spacing: 0;
+  line-height: calc(100vw * 40 / 375);
+}
+.font-menu {
+  @apply uppercase;
+  font-family: GTAmerica-CompressedBlack;
+  font-size: calc(100vw * 45 / 375);
+  line-height: calc(100vw * 37 / 375);
+  letter-spacing: 0;
+}
+.font-paragraph {
+  font-family: GTAmerica-Extended;
+  font-size: calc(100vw * 24 / 375);
+  letter-spacing: -0.6px;
+  line-height: calc(100vw * 34 / 375);
+}
+.font-body {
+  font-family: GTAmerica-Extended;
+  font-size: calc(100vw * 18 / 375);
+  letter-spacing: -0.5px;
+  line-height: calc(100vw * 26 / 375);
+}
+.font-label {
+  @apply uppercase font-medium;
+  font-family: GTAmerica-Extended;
+  font-size: calc(100vw * 16 / 375);
+  letter-spacing: -0.4px;
+  line-height: calc(100vw * 17.6 / 375);
+  &.font-normal {
+    font-weight: 400;
+  }
+}
+.font-small {
+  font-family: GTAmerica-Extended;
+  font-size: calc(100vw * 12 / 375);
+  letter-spacing: -0.02667em;
+  line-height: 2.5em;
+}
+.font-footer {
+  font-family: GTAmerica-Extended;
+  font-size: 16px;
+  letter-spacing: -0.4px;
+  line-height: 17.6px;
+} */
+
+@screen md {
+  .font-h1 {
+    font-size: 112px;
+    letter-spacing: -0.4px;
+    line-height: 88px;
+    text-align: center;
+  }
+  .font-h2 {
+    font-size: 70px;
+    letter-spacing: 0em;
+    line-height: 72px;
+  }
+  .font-h3 {
+    font-size: 60px;
+    letter-spacing: 0.18px;
+    line-height: 1em;
+  }
+  .font-h4 {
+    font-size: 40px;
+    letter-spacing: 0.18px;
+    line-height: 38.4px;
+  }
+  .font-h5 {
+    font-size: 40px;
+    letter-spacing: 0.18px;
+    line-height: 38.4px;
+  }
+  .font-menu {
+    font-size: 70px;
+    /* color: #FDE6DA; */
+    letter-spacing: 0;
+    line-height: 72px;
+  }
+
+  .nav_overlay .fon-menu {
+    color: #FDE6DA;
+  }
+  .font-paragraph {
+    font-size: 24px;
+    letter-spacing: -0.64px;
+    line-height: 34px;
+  }
+  .font-body {
+    font-size: 19.2px;
+    letter-spacing: -0.51px;
+    line-height: 30.4px;
+  }
+  .font-label {
+    font-size: 16px;
+    letter-spacing: -0.43px;
+    line-height: 17.6px;
+  }
+  .font-footer {
+    font-size: 20px;
+    letter-spacing: -0.025em;
+    line-height: 1.5em;
+  }
 }
 
-h2 {
-  @apply text-3xl;
+@screen lg {
+  .font-h1 {
+    font-size: 140px;
+    letter-spacing: -0.00357em;
+    line-height: 0.78571em;
+    text-align: center;
+  }
+  .font-h2 {
+    font-size: 110px;
+    letter-spacing: -0.00364em;
+    line-height: 0.86364em;
+  }
+  .font-h3 {
+    font-size: 75px;
+    letter-spacing: -0.00267em;
+    line-height: 0.90667em;
+  }
+  .font-h4 {
+    font-size: 50px;
+    letter-spacing: 0;
+    line-height: 0.96em;
+  }
+  .font-h5 {
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: 1em;
+  }
+  .font-menu {
+    font-size: 20px;
+    letter-spacing: 0.0555em;
+    line-height: 0.725em;
+    height: 0.725em;
+  }
+  .font-paragraph {
+    font-size: 30px;
+    letter-spacing: -0.02667em;
+    line-height: 1.5em;
+  }
+  .font-body {
+    font-size: 24px;
+    letter-spacing: -0.025em;
+    line-height: 1.58333em;
+  }
+  .font-label {
+    font-size: 20px;
+    letter-spacing: -0.025em;
+    line-height: 1.1em;
+  }
+  .font-footer {
+    font-size: 20px;
+    letter-spacing: -0.025em;
+    line-height: 1.5em;
+  }
 }
 
-h3 {
-  @apply text-2xl;
-}
-
-h1, h2, h3 {
-  @apply leading-tight font-bold tracking-wide;
-  margin-bottom: 0.5em;
-}
-
-p {
-  @apply leading-normal mb-1;
-  max-width: 40em;
+@screen fw {
+  .font-h1 {
+    font-size: calc(min(100vw, $site-max-width) * 140 / 1600);
+  }
+  .font-h2 {
+    font-size: calc(min(100vw, $site-max-width) * 110 / 1600);
+  }
+  .font-h3 {
+    font-size: calc(min(100vw, $site-max-width) * 75 / 1600);
+  }
+  .font-h4 {
+    font-size: calc(min(100vw, $site-max-width) * 50 / 1600);
+  }
+  .font-h5 {
+    font-size: calc(min(100vw, $site-max-width) * 40 / 1600);
+  }
+  .font-menu {
+    font-size: calc(min(100vw, $site-max-width) * 20 / 1600);
+  }
+  .font-paragraph {
+    font-size: calc(min(100vw, $site-max-width) * 30 / 1600);
+  }
+  .font-body {
+    font-size: calc(min(100vw, $site-max-width) * 24 / 1600);
+  }
+  .font-label {
+    font-size: calc(min(100vw, $site-max-width) * 20 / 1600);
+  }
 }

@@ -1,0 +1,31 @@
+.koffie-rotator {
+  @apply hidden;
+}
+
+.page-koffie {
+  .koffie-rotator {
+    @apply block absolute left-0 top-0 z-10;
+    width: 112px;
+    height: 112px;
+    margin-left: -56px;
+    margin-top: -56px;
+    transform: rotate(0deg);
+    animation: rotationFrames 20s linear infinite;
+  }
+
+.swiper-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    @apply bg-orange;
+  }
+}
+
+@keyframes rotationFrames {
+  0% {
+    transform: rotate(0deg)
+  }
+  50% {
+    transform: rotate(180deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}

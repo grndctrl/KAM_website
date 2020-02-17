@@ -1,0 +1,46 @@
+{# About page #}
+
+{% extends "core/base.twig" %}
+
+{% set main_class = ['header-offset', 'page-blue'] %}
+{% set spacer_class = ['bg-white'] %}
+
+{% block main %}
+
+  {# {% include "blocks/common/text-h1.twig" with {
+    fields: {
+      text: '60KM A DAY<br>KEEPS THE<br>DOCTOR<br>AWAY'
+    }
+    } %}
+
+  {% include "blocks/common/image-skipper.twig" %}
+
+  {% include "blocks/common/text-paragraph.twig" %}
+
+  {% include "blocks/fietsen/fietsen-swiper.twig" with {
+    change_header: {
+      from: 'white',
+      to: 'blue'
+    } 
+  }%}
+
+  {% include "blocks/fietsen/logo-feed.twig" with {
+    image: post.meta('image')
+  }%}
+
+  {% include "blocks/common/text-h1.twig" with {
+    fields: {
+      text: '60KM A DAY<br>KEEPS THE<br>DOCTOR<br>AWAY'
+    },
+    section_class: ['bg-white', 'text-blue']  
+  } %}
+
+  {% include "blocks/common/verhalen-swiper.twig" with {
+    section_class: ['bg-white', 'text-blue']  
+  } %} #}
+
+  {{ post.content }}
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

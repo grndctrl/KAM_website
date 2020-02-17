@@ -1,0 +1,23 @@
+<section class="section pt-0 bg-white {{ section_class|join(' ') }}">
+
+    <div class="logo-swiper swiper-container" swiper-freemode="true" swiper-mobile-slides-per-view="4" swiper-slides-per-view="6" swiper-loop="true">
+      <div class="swiper-wrapper">
+
+        {% for logo in fields.logos %}
+
+          <div class="swiper-slide relative">
+            {% include "components/image.twig" with {
+              image: logo.image,
+              size : "logo",
+              ratio: "strict",
+              object_fill: 'contain',
+              responsive: false
+            } %}
+          </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+
+</section>

@@ -1,0 +1,18 @@
+@import '_anim-underline.pcss';
+@import '_anim-text-in.pcss';
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in $short forwards ease;
+  animation-iteration-count: 1;
+  animation-delay: $long;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

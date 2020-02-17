@@ -1,0 +1,28 @@
+{# About page #}
+
+{% extends "core/base.twig" %}
+
+{% set main_class = ['header-offset', 'page-blue-orange'] %}
+
+{% block main %}
+
+{# {% include "blocks/common/text-h1.twig" %}
+
+{% include "blocks/common/image.twig" %}
+
+{% include "blocks/common/text-paragraph.twig" %}
+
+{% include "blocks/common/text-links.twig" %} #}
+
+{{ post.content }}
+
+ <style>
+  .footer-main {
+    background: #FF4D0A;
+    color:#00205C;
+  }
+  </style>
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

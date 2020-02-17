@@ -27,7 +27,15 @@
   
     <div id="core"></div>
 
-    <div class="barba-wipe z-40"></div>
+    <div id="splash-screen" class="bg-blue text-white fixed inset-0 flex items-center" style="z-index: 9999">
+      <div class="container">
+        <div class="row">
+          <div class="col w-8/12 lg:2-2/12 mx-auto logo-splash">
+            {% include "svg/logo-splash.twig" %}
+          </div>
+        </div>
+      </div>
+    </div>
 
     {% block header %}
       {% include "layout/header.twig" %}
@@ -41,8 +49,10 @@
       </main>
     </div> #}
 
-    <main id="swup" class="transition-fade {{ main_class|join(' ') }}">
+    <main id="swup" class="transition-fade {{ main_class|join(' ') }} page-{{ post.slug }}">
       {% block main %}{% endblock %}
+      
+      <div class="pb-8 lg:pb-16 {{ spacer_class|join(' ') }}"></div>
 
       {% block scripts %}{% endblock %}
     </main>

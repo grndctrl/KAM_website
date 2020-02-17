@@ -1,0 +1,64 @@
+/* .anim-underline {
+  @apply relative;
+
+  &::after {
+    @apply absolute w-full left-0 bottom-0 border-b-2 -mb-1;
+    content: '';
+  }
+} */
+
+.anim-underline {
+  /* transition: background-size $short linear; */
+  display: inline;
+  text-decoration: none;
+  padding-bottom: 0.25em;
+  background-image: linear-gradient(white 0%, white 100%);
+  background-repeat: no-repeat;
+  background-position: left 100%;
+}
+
+.anim-underline-in {
+  background-size: 0 1.5px;
+
+  &.triggered {
+    background-position: right 100%;
+  }
+
+  &.swiper-active,
+  &.active {
+    background-position: left 100%;
+    background-size: 100% 1.5px;
+  }
+}
+
+.anim-underline-out {
+  background-size: 100% 1.5px;
+
+  &.triggered {
+    background-position: left 100%;
+  }
+
+  &.active {
+    background-position: right 100%;
+    background-size: 0 1.5px;
+  }
+}
+
+@screen md {
+  .anim-underline-in {
+    background-size: 0 2px;
+
+    &.swiper-active,
+    &.active {
+      background-size: 100% 2px;
+    }
+  }
+
+  .anim-underline-out {
+    background-size: 100% 2px;
+    
+    &.active {
+      background-size: 0 2px;
+    }
+  }
+}

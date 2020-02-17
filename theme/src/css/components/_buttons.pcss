@@ -1,17 +1,126 @@
 button,
 .button {
-    @apply px-4 py-2 bg-gray-400 mt-4;
-    transition: $short easeOutCirc;
-    
-    &:hover {
-        @apply shadow-lg;
-        transform: translateY(-0.125em);
+  @apply px-4 py-2 bg-gray-400 mt-4;
+  transition: $short easeOutCirc;
+
+  &:hover {
+    @apply shadow-lg;
+    transform: translateY(-0.125em);
+  }
+
+  &:focus {
+    @apply bg-gray-600;
+    outline: none;
+    box-shadow: none;
+    transform: translateY(0);
+  }
+}
+
+.button-prev,
+.button-next {
+  @apply flex justify-center items-center rounded-full bg-blue;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.30);
+  cursor: pointer;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform $short ease;
+
+  svg {
+    width: 27px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.text-orange {
+  .button-prev,
+  .button-next {
+    @apply bg-orange;
+  }
+}
+
+.text-blue {
+  .button-prev,
+  .button-next {
+    @apply bg-blue;
+  }
+}
+
+.disabled {
+  .button-prev,
+  .button-next {
+    cursor: default;
+  }
+}
+
+.slider-prev {
+  @apply justify-start;
+  .button-prev {
+    margin-left: $site-offset;
+  }
+  &:hover {
+    .button-prev {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.slider-next {
+  @apply justify-end;
+  .button-next {
+    margin-right: $site-offset;
+  }
+  &:hover {
+    .button-next {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@screen md {
+  .button-prev,
+  .button-next {
+    @apply flex justify-center items-center rounded-full bg-blue;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.30);
+    cursor: pointer;
+    transform: scale(1);
+    transform-origin: center;
+    transition: transform $short ease;
+
+    svg {
+      width: 21px;
     }
 
-    &:focus {
-        @apply bg-gray-600;
-        outline: none;
-        box-shadow: none;
-        transform: translateY(0);
+    &:hover {
+      transform: scale(1.1);
     }
+  }
+}
+
+@screen lg {
+  .button-prev,
+  .button-next {
+    @apply flex justify-center items-center rounded-full bg-blue;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.30);
+    cursor: pointer;
+    transform: scale(1);
+    transform-origin: center;
+    transition: transform $short ease;
+
+    svg {
+      width: 27px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }

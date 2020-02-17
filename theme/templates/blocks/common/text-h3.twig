@@ -1,0 +1,19 @@
+<section class="section {{ section_class|join(' ') }}">
+  <div class="container">
+
+    <div class="row">
+      <div class="col w-full lg:w-6/12 lg:ml-1/12">
+
+        <h3 class="font-h3">
+          {% if fields.text is not null %}
+          {{ fields.text }}
+          {% else %}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At, quae distinctio!
+          {% endif %}
+        </h3>
+
+      </div>
+    </div>
+
+  </div>
+</section>

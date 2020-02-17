@@ -1,13 +1,72 @@
+.nav-menu-item-inverted {
+  @apply bg-black text-white;
+}
+
+.header-blue {
+  @apply bg-transparent text-blue;
+  .nav-menu-item-inverted {
+    @apply bg-blue text-white;
+  }
+  .nav-burger span {
+    @apply bg-blue;
+  }
+}
+
+.header-orange {
+  @apply bg-transparent text-orange;
+  .nav-menu-item-inverted {
+    @apply bg-orange text-white;
+  }
+  .nav-burger span {
+    @apply bg-orange;
+  }
+}
+
+.header-white {
+  @apply bg-transparent text-white;
+  .nav-menu-item-inverted {
+    @apply bg-white text-blue;
+  }
+  .nav-burger span {
+    @apply bg-white;
+  }
+}
+
+.header-blue,
+.header-white,
+.header-orange {
+  &.nav-active {
+    @apply bg-transparent text-light-pink;
+    .nav-menu-item-inverted {
+      @apply bg-light-pink text-orange;
+    }
+  }
+}
+
 .nav-main {
   @apply relative;
 
   .nav-menu {
-    @apply fixed w-full h-screen flex flex-col bg-gray-600 text-white;
-    top: 0;
-    left: 100vw;
-    padding: calc($header-height + $site-offset) $site-offset;
-    .nav-menu-item {
-      @apply ml-0;
+    @apply hidden;
+  }
+
+  .nav-overlay {
+    @apply fixed w-screen h-screen inset-0 flex text-light-pink bg-orange;
+    margin-left: 100vw;
+
+    ul {
+      @apply mx-auto;
+      padding-top: 159px;
+
+      li {
+        @apply mb-8 text-center;
+        .anim-underline {
+          background-image: none !important;
+        }
+        &.nav-menu-item-inverted {
+          @apply p-4 bg-light-pink text-orange;
+        }
+      }
     }
   }
 
@@ -17,58 +76,122 @@
     width: $burger-width;
     height: $burger-height;
     span {
-      @apply bg-black w-full self-end;
-      height: 2px;
+      @apply w-full self-end;
+      height: 4px;
       transition: $medium easeOutCirc;
     }
-
-    @mixin hover-child span:first-child, margin-top, 4px;
-    @mixin hover-child span:last-child, margin-bottom, 4px;
+    &.triggered span {
+      &:first-child {
+        animation: burgerBunTopOut $medium forwards 1;
+      }
+      &:last-child {
+        animation: burgerBunBottomOut $medium forwards 1;
+      }
+    }
   }
   &.animating {
-    .nav-menu {
-      transition: left $medium easeInOutCirc;
+    .nav-overlay {
+      transition: margin-left $medium easeInOutCirc;
     }
   }
   &.active {
-    .nav-menu {
-      left: 10vw;
+    .nav-overlay {
+      margin-left: 0;
     }
     .nav-burger {
       span {
-        @apply bg-white;
+        @apply bg-light-pink;
         margin: 0 !important;
         &:first-child {
-          transform: translateY(calc($burger-height / 2 - 1px));
+          animation: burgerBunTopIn $short forwards 1;
         }
         &:last-child {
-          transform: translateY(calc($burger-height / -2 + 1px));
+          animation: burgerBunBottomIn $short forwards 1;
+        }
+        &:nth-child(2) {
+          opacity: 0;
         }
       }
     }
   }
 }
 
-@screen sm {
-  .nav-main {
-    &.active {
-      .nav-menu {
-        left: 20vw;
+@screen md {
+.nav-main {
+  .nav-overlay {
+    ul {
+      @apply pt-0 justify-center;
+      li {
+        @apply mb-10;
+      
       }
     }
   }
 }
+}
+
 
 @screen lg {
   .nav-main {
-    .nav-menu {
-      @apply relative w-auto h-auto inset-auto flex-row p-0 bg-transparent text-black;
-      .nav-menu-item {
-        @apply ml-4;
-      }
-    }
+    .nav-overlay,
     .nav-burger {
       @apply hidden;
     }
+
+    .nav-menu {
+      @apply flex relative w-auto h-auto inset-auto flex-row p-0;
+      .nav-menu-item {
+        @apply py-4 px-3;
+        &.nav-menu-item-inverted {
+          @apply ml-3;
+        }
+      }
+    }
+  }
+}
+
+@keyframes burgerBunTopIn {
+  0% {
+  }
+  50% {
+    transform: translateY(calc($burger-height / 2 - 2px));
+  }
+  100% {
+    transform: translateY(calc($burger-height / 2 - 2px)) rotate(45deg);
+  }
+}
+
+@keyframes burgerBunBottomIn {
+  0% {
+  }
+  50% {
+    transform: translateY(calc($burger-height / -2 + 2px));
+  }
+  100% {
+    transform: translateY(calc($burger-height / -2 + 2px)) rotate(-45deg);
+  }
+}
+
+@keyframes burgerBunTopOut {
+  0% {
+    transform: translateY(calc($burger-height / 2 - 2px)) rotate(45deg);
+  }
+  50% {
+    transform: translateY(calc($burger-height / 2 - 2px)) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes burgerBunBottomOut {
+  0% {
+    transform: translateY(calc($burger-height / -2 + 2px)) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(calc($burger-height / -2 + 2px)) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
   }
 }

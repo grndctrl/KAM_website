@@ -1,0 +1,54 @@
+{# About page #}
+
+{% extends "core/base.twig" %}
+
+{% set main_class = ['header-offset', 'page-white', 'page-verhalen'] %}
+
+{% block main %}
+
+  <section class="">
+    <div class="container">
+
+      <div class="row flex-wrap">
+
+        {% for item in verhalen %}
+
+          {% if loop.index is even %}
+            {% set margin = "lg:mr-1/12" %}
+          {% else %}
+            {% set margin = "lg:ml-1/12" %}
+          {% endif %}
+
+          {% if loop.index == 1 or loop.index == 2 %}
+            {% set anim = "" %}
+          {% else %}
+            {% set anim = "anim-move-in" %}
+          {% endif %}
+          
+          <div class="col section {{ anim }} w-full md:w-6/12 lg:w-5/12 {{ margin }}" {% if loop.index is even %}data-anim-delay="200"{% endif %}>
+            <a href="{{ item.link }}">
+              {% include "components/image.twig" with {
+                image: item.thumbnail,
+                size : "landscape",
+                ratio: "strict"
+              } %}
+              <p class="font-label font-normal pt-6 pb-3">
+              {% set date = item.post_date|date('n,Y') %}
+                {{ date|format_date }} &mdash; {{ item.category }}
+              </p>
+              <p class="font-h4">
+                {{ item.title }}
+              </p>
+            </a>
+
+          </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

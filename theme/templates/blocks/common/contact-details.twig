@@ -1,0 +1,40 @@
+{# <section class="section">
+<div class="container"> #}
+
+  <section class="section font-paragraph">
+    <div class="container lg:pb-32">
+      <div class="row flex-wrap">
+        <div class="col w-full md:w-6/12 lg:w-4/12 lg:ml-2/12 pb-8 md:pb-10 lg:pb-0">
+          <p class="text-center">
+            {{ global_contact.address|nl2br }}
+          </p>
+        </div>
+        <div class="col w-full md:w-6/12 lg:w-4/12 lg:mr-2/12 pb-8 md:pb-10 lg:pb-0">
+          <p class="text-center">
+            Contact<br>
+            {{ global_contact.phone }}<br>
+            <a href="mailto:{{ global_contact.email }}">{{ global_contact.email }}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row flex-wrap">
+        <div class="col w-full md:w-6/12 lg:w-4/12 lg:ml-2/12 pb-8 md:pb-0 lg:pb-0">
+          <p class="text-center">
+            Follow us<br>
+          <a target="_blank" href="{{ global_contact.instagram }}">instagram</a><br>
+          <a target="_blank" href="{{ global_contact.facebook }}">facebook</a>
+          </p>
+        </div>
+        <div class="col w-full md:w-6/12 lg:w-4/12 lg:mr-2/12 pb-0 md:pb-0 lg:pb-0">
+          <p class="text-center">
+        {{ global_contact.opening_hours|nl2br }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+{# 
+</div>
+</section> #}

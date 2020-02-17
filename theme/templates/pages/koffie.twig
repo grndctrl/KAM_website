@@ -1,0 +1,34 @@
+{# About page #}
+
+{% extends "core/base.twig" %}
+
+{% set main_class = ['header-offset', 'page-pink'] %}
+{% set spacer_class = ['hidden'] %}
+
+{% block main %}
+
+    {# {% include "blocks/common/text-h1.twig" with {
+    fields: {
+      text: 'FLAT WHITE,<br>COLD BREW,<br>ESPRESSO,<br>ENZO.'
+    }
+  } %}
+
+  {% include "blocks/common/image-skipper.twig" %}
+
+  {% include "blocks/common/text-paragraph.twig" %}
+
+  {% include "blocks/common/text-links.twig" %}
+
+  {% include "blocks/common/verhalen-swiper.twig" %} #}
+
+  {{ post.content }}
+
+  <style>
+  .footer-main {
+    background: #FF4D0A;
+  }
+  </style>
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

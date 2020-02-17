@@ -1,7 +1,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "./vendor/vendor.pcss";
+@import "swiper/css/swiper.css";
+/* purgecss start ignore */
 @import "./core/core.pcss";
-@import "./components/components.pcss";
+@import "./animations/animations.pcss";
+@import "./components/components.pcss"; 
 @import "./layout/layout.pcss";
+/* purgecss end ignore */

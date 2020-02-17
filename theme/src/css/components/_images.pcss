@@ -1,6 +1,7 @@
 figure {
   @apply relative overflow-hidden;
 
+  .image-imitator,
   img {
     @apply block w-full h-auto;
 
@@ -18,10 +19,24 @@ figure {
     /* purgecss end ignore */
   }
 
+  &.cover {
+    .image-imitator,
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &.contain {
+    .image-imitator,
+    img {
+      object-fit: contain;
+    }
+  }
+
   &.strict {
+    .image-imitator,
     img {
       @apply absolute w-full h-full;
-      object-fit: cover;
     }
 
     &.portrait::after {
@@ -33,7 +48,10 @@ figure {
     &.landscape::after {
       content: '';
       display: block;
-      padding-top: 66.66667%;
+      padding-top: 62.12252%;
+      &.wide {
+        padding-top: 57.18825%;
+      }
     }
 
     &.square::after {
@@ -41,5 +59,18 @@ figure {
       display: block;
       padding-top: 100%;
     }
+
+    &.logo::after {
+      content: '';
+      display: block;
+      padding-top: 50%;
+    }
+  }
+}
+
+@screen lg {
+  .verhaal-image {
+    @apply mx-auto;
+    width: calc(((min(100vw, $site-max-width) - (2 * $site-offset) + $gutter)) * (10/12) + $gutter);
   }
 }

@@ -1,0 +1,191 @@
+{% if section_class is not defined %}
+  {% set section_class = [] %}
+{% endif %}
+ {% set change_header = {
+      from: 'white',
+      to: 'blue'
+    } %}
+{% if change_header is defined %}
+  {% set  section_class = section_class|merge(['header-color-changer']) %}
+  {% set attributes = 'data-from="' ~ change_header.from ~ '" data-to="' ~ change_header.to ~ '"' %}
+{% endif %}
+
+<section class="section fietsen-swiper bg-white text-blue {{ section_class|join(' ') }}" {{ attributes }}>
+  <div class="container pb-8 lg:pb-16">
+    <div class="row flex-wrap">
+      <div class="col w-full text-center lg:text-left lg:ml-2/12 lg:w-5/12 pt-0 md:pt-10 lg:pt-0">
+        <h3 class="font-h3">Onze Fietsen</h3>
+      </div>
+      <div class="col w-full ml-0 lg:w-3/12 flex lg:justify-end">
+        <ul class="font-body uppercase w-full flex justify-center lg:justify-end items-end">
+          <li class="swiper-active fietsen-trigger cursor-pointer anim-underline anim-underline-in ml-8 lg:ml-12" trigger-target="all">all</li>
+        {% for slider in fields.sliders %}
+          <li class="fietsen-trigger cursor-pointer anim-underline anim-underline-in {% if loop.last %}mx-8 lg:mr-0 lg:ml-12{% else %}ml-8 lg:ml-12{% endif %}" trigger-target="{{ slider.category }}">{{ slider.category }}</li>
+        {% endfor %}
+          {# <li class="swiper-active fietsen-trigger cursor-pointer anim-underline anim-underline-in" trigger-target="race">race</li>
+          <li class="fietsen-trigger cursor-pointer anim-underline anim-underline-in ml-8 lg:ml-12" trigger-target="cross">cross</li>
+          <li class="fietsen-trigger cursor-pointer anim-underline anim-underline-in ml-8 lg:ml-12" trigger-target="urban">urban</li> #}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative">
+    <div class="placeholder">
+      <div class="container">
+        <div class="row">
+          <div class="col w-full lg:w-8/12">
+            {% include "components/image-imitator.twig" with {
+              size : "landscape",
+              ratio: "strict"
+            } %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% set allSlides = [] %}
+    {% for slider in fields.sliders %}
+      {# {% for slide in slider.slides %} #}
+
+        {% set allSlides = allSlides|merge(slider.slides) %}
+
+      {# {% endfor %} #}
+    {% endfor %}
+
+      <div class="swiper-container-wrapper w-full h-full">
+        <div id="swiper-all" class="swiper swiper-container" swiper-center="true" swiper-slides-per-view="auto" swiper-loop="true">
+          <div class="swiper-wrapper">
+
+            {% for slide in allSlides %}
+
+              <div class="swiper-slide relative">
+                {% include "components/image.twig" with {
+                  image: slide.image,
+                  size : "landscape",
+                  ratio: "strict"
+                } %}
+              </div>
+
+            {% endfor %}
+
+          </div>
+
+          <div class="swiper-prev focus:outline-none">
+            {% include "components/button-prev.twig" %}
+          </div>
+          <div class="swiper-next focus:outline-none">
+            {% include "components/button-next.twig" %}
+          </div>
+        </div>
+      </div>
+
+    {% for slider in fields.sliders %}
+      <div class="swiper-container-wrapper w-full h-full">
+        <div id="swiper-{{ slider.category }}" class="disabled swiper swiper-container" swiper-center="true" swiper-slides-per-view="auto" swiper-loop="true">
+          <div class="swiper-wrapper">
+
+            {% for slide in slider.slides %}
+
+              <div class="swiper-slide relative">
+                {% include "components/image.twig" with {
+                  image: slide.image,
+                  size : "landscape",
+                  ratio: "strict"
+                } %}
+              </div>
+
+            {% endfor %}
+
+          </div>
+
+          <div class="swiper-prev focus:outline-none">
+            {% include "components/button-prev.twig" %}
+          </div>
+          <div class="swiper-next focus:outline-none">
+            {% include "components/button-next.twig" %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    {# <div class="swiper-container-wrapper w-full h-full">
+      <div id="swiper-race" class="swiper swiper-container" swiper-center="true" swiper-slides-per-view="auto" swiper-loop="true">
+        <div class="swiper-wrapper">
+
+          {% for slide in 1..12 %}
+
+            <div class="swiper-slide relative">
+              {% include "components/image.twig" with {
+                size : "landscape",
+                ratio: "strict"
+              } %}
+            </div>
+
+          {% endfor %}
+
+        </div>
+
+        <div class="swiper-prev focus:outline-none">
+          {% include "components/button-prev.twig" %}
+        </div>
+        <div class="swiper-next focus:outline-none">
+          {% include "components/button-next.twig" %}
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-container-wrapper w-full h-full">
+      <div id="swiper-cross" class="disabled swiper swiper-container" swiper-slides-per-view="auto" swiper-loop="true">
+        <div class="swiper-wrapper">
+
+          {% for slide in 1..12 %}
+
+            <div class="swiper-slide relative">
+              {% include "components/image.twig" with {
+                size : "landscape",
+                ratio: "strict"
+              } %}
+            </div>
+
+          {% endfor %}
+
+        </div>
+
+        <div class="swiper-prev focus:outline-none">
+          {% include "components/button-prev.twig" %}
+        </div>
+        <div class="swiper-next focus:outline-none">
+          {% include "components/button-next.twig" %}
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-container-wrapper w-full h-full">
+      <div id="swiper-urban" class="disabled swiper swiper-container" swiper-slides-per-view="auto" swiper-loop="true">
+        <div class="swiper-wrapper">
+
+          {% for slide in 1..12 %}
+
+            <div class="swiper-slide relative">
+              {% include "components/image.twig" with {
+                size : "landscape",
+                ratio: "strict"
+              } %}
+            </div>
+
+          {% endfor %}
+
+        </div>
+
+        <div class="swiper-prev focus:outline-none">
+          {% include "components/button-prev.twig" %}
+        </div>
+        <div class="swiper-next focus:outline-none">
+          {% include "components/button-next.twig" %}
+        </div>
+      </div>
+    </div> #}
+  </div>
+
+</section>

@@ -1,0 +1,31 @@
+{% if section_class is not defined %}
+  {% set  section_class = [] %}
+{% endif %}
+{% if change_header is defined %}
+  {% set  section_class = section_class|merge(['header-color-changer']) %}
+  {% set attributes = 'data-from="' ~ change_header.from ~ '" data-to="' ~ change_header.to ~ '"' %}
+{% endif %}
+
+
+<section class="section h1-heading {{ section_class|join(' ') }}" {{ attributes }}>
+  <div class="container">
+
+    <div class="row">
+      <div class="col w-full mx-auto">
+
+        <h1 class="font-h1 text-center anim-text-in">
+        
+        {% if fields.text is not null %}
+          {{ fields.text }}
+        {% else %}
+          lorem ip,<br>
+          sum dolor,<br>
+          sit amet<br>
+          {% endif %}
+        </h1>
+
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,11 @@
+{% if size is not defined %}
+  {% set size = "landscape" %}
+{% endif %}
+{% if ratio is not defined %}
+  {% set ratio = "original" %}
+{% endif %}
+
+  <figure class="{{ size }} {{ ratio }} {{ figure_class|join(' ') }}">
+    <div class="image-imitator" src="" alt="imitator">
+  </figure>
+

@@ -4,14 +4,22 @@
 {% if ratio is not defined %}
   {% set ratio = "original" %}
 {% endif %}
+{% if object_fill is not defined %}
+  {% set object_fill = "cover" %}
+{% endif %}
+{% if responsive is not defined %}
+  {% set responsive = true %}
+{% endif %}
 
 {% if image is not defined  or image == null %}
 
-  <figure class="{{ size }} {{ ratio }} {{ figureClass|join(' ') }}">
+  <figure class="{{ size }} {{ ratio }} {{ object_fill }} {{ figure_class|join(' ') }}">
     <img class="lazy" src="https://dummyimage.com/100x100/646480/808096.png" data-src="https://dummyimage.com/2560x1080/646480/808096.png" alt="placeholder">
   </figure>
 
 {% else %}
+
+  {% if responsive %}
 
   {% set lazyload = image | get_timber_image_responsive(size, {
     lazy_srcset: true,
@@ -19,8 +27,16 @@
   }) %}
   {% set lazypreload = image | get_timber_image("lazy") %}
 
-  <figure class="{{ size }} {{ ratio }} {{ figureClass|join(' ') }}">
+  <figure class="{{ size }} {{ ratio }} {{ object_fill }} {{ figure_class|join(' ') }}">
     <img class="lazy" {{ lazypreload}} {{ lazyload }}>
   </figure>
+
+  {% else %}
+
+  <figure class="{{ size }} {{ ratio }} {{ object_fill }} {{ figure_class|join(' ') }}">
+    <img src="{{ TimberImage(image).src() }}">
+  </figure>
+    
+  {% endif %}
 
 {% endif %}

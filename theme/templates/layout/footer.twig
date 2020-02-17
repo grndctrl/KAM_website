@@ -1,32 +1,53 @@
-<footer id="footer" class="section footer-main bg-gray-900 text-gray-200 z-50">
+<footer id="footer" class="pt-16 pb-8 footer-main font-footer bg-blue text-white">
   <div class="container">
 
     {% block footer %}
 
-        <h1 class="mb-4 text-4xl font-bold">Contact us</h1>
-        <div class="flex mb-4">
-          <div class="mr-2 text-gray-600">T</div>
-          <div>
-            <p>+31 6 12345678</p>
-          </div>
+  <div class="row pb-8 md:pb-0 lg:pb-12">
+  
+      <div class="col w-10/12 mx-auto flex flex-wrap justify-between">
+        <div class="w-full md:w-6/12 lg:w-auto flex-shrink pb-8 md:pb-10">
+          <p class="text-center">
+            Bar & shop<br>
+            Boschstraat 31<br>
+            4811 GA, Breda
+          </p>
         </div>
-        <div class="flex mb-4">
-          <div class="mr-2 text-gray-600">E</div>
-          <div>
-            <p>hello@mail.com</p>
-          </div>
+        <div class="w-full md:w-6/12 lg:w-auto flex-shrink pb-8 md:pb-10">
+          <p class="text-center">
+            Contact<br>
+            076 888 8708<br>
+            info@kamu-breda.nl
+          </p>
         </div>
-        <div class="flex mb-8">
-          <div class="mr-2 text-gray-600">A</div>
-          <div>
-            <p>Torenallee 72-50<br>5617 Bd Eindhoven</p>
-          </div>
+        <div class="w-full md:w-6/12 lg:w-auto flex-shrink pb-8 md:pb-10">
+          <p class="text-center">
+            Follow us<br>
+            instagram<br>
+            facebook
+          </p>
         </div>
+        <div class="w-full md:w-6/12 lg:w-auto flex-shrink pb-8 md:pb-10">
+          <p class="text-center">
+            Openingstijden<br>
+            Ma-Vr: 09:00 - 17:30<br>
+            Zaterdag: 09:00 - 17:00<br>
+            Zondag: 11:00 - 17:00
+          </p>
+        </div>
+      </div>
 
-        {# <p>{{ footer_widget.footer_text }}</p> #}
-        <p class="text-gray-600">&copy;
-          {{ "now"|date("Y") }}</p>
+      </div>
 
+      <div class="row">
+        <div class="col lg:ml-1/12">
+          <p class="font-small">
+            &copy;
+            {{ "now"|date("Y") }}
+            Kamu Breda
+          </p>
+        </div>
+      </div>
 
     {% endblock %}
 
