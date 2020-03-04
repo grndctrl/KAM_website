@@ -4,7 +4,8 @@ module.exports = function (api) {
   const presets = [
     [
       '@babel/preset-env', {
-        modules: false,
+        useBuiltIns: "usage", // or "entry"
+        corejs: 3,
         targets: {
           browsers: ['> 0.5%', 'last 5 versions', 'ie >= 10']
         }

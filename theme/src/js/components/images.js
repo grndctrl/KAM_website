@@ -1,9 +1,9 @@
-import objectFitImages from 'object-fit-images'
+// import objectFitImages from 'object-fit-images'
 import { CoreModule } from '../core/core-module';
 
 class Images extends CoreModule {
   init() {
-    objectFitImages()
+    // objectFitImages()
 
     return super.init()
   }

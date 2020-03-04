@@ -1,11 +1,23 @@
 {% extends "core/base.twig" %}
 
+
+
 {% set main_class = ['page-white'] %}
+{% set fromColor = 'blue' %}
+{% set toColor = 'white' %}
+{% set bgColor = 'bg-blue' %}
+{% if post.category.slug == 'koffie' %}
+{% set main_class = ['page-pink'] %}
+{% set fromColor = 'orange' %}
+{% set toColor = 'white-orange' %}
+{% set bgColor = 'bg-orange' %}
+{% endif %}
+
 {% set spacer_class = ['bg-white'] %}
 
 {% block main %}
 
-  <section class="section header-offset bg-blue text-white header-color-changer" data-from="blue" data-to="white">
+  <section class="section header-offset {{ bgColor }} text-white header-color-changer" data-from="{{ fromColor }}" data-to="{{ toColor }}">
     <div class="container show-all">
 
       <div class="row">
@@ -30,8 +42,8 @@
       </div>
     </div>
           <div class="w-full absolute inset-0 z-10">
-        <div class="bg-blue w-full h-6/12"></div>
-        <div class="header-color-changer" data-from="white" data-to="blue"></div>
+        <div class="{{ bgColor }} w-full h-6/12"></div>
+        <div class="header-color-changer" data-from="{{ toColor }}" data-to="{{ fromColor }}"></div>
       </div>
   </section>
 
@@ -40,4 +52,18 @@
   {% include "blocks/common/verhalen-swiper-all.twig" with { 
     skip: post.id
   } %}
+
+  {% if post.category.slug == 'koffie' %}
+  <style>
+    .footer-main {
+      background: #FF4D0A;
+    }
+  </style>
+  {% else %}
+      <style>
+    .footer-main {
+      background: #00205C;
+    }
+  </style>
+  {% endif %}
 {% endblock %}

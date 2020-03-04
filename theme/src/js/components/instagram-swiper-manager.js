@@ -1,6 +1,6 @@
 import { CoreModule, config, CoreEventListener } from "../core"
 import throttle from "lodash/throttle"
-import Swiper from "swiper"
+import Swiper from 'swiper'
 import anime from 'animejs'
 
 class InstagramSwiper extends CoreModule {

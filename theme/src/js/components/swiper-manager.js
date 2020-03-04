@@ -1,5 +1,5 @@
 import { CoreModule, config } from "../core"
-import Swiper from "swiper"
+import Swiper from 'swiper'
 
 class SwiperManager extends CoreModule {
   init() {

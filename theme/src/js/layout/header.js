@@ -37,6 +37,7 @@ class Header extends CoreModule {
         new CoreEventListener("header:change-color", (event) => {
           this.element.classList.remove("header-blue")
           this.element.classList.remove("header-orange")
+          this.element.classList.remove("header-white-orange")
           this.element.classList.remove("header-white")
 
           let color = "header-" + event.color
@@ -44,15 +45,6 @@ class Header extends CoreModule {
         })
       )
 
-      // events.push(
-      //   new CoreEventListener("swup:content-replaced", (event) => {
-      //     this.element.classList.remove("header-blue")
-      //     this.element.classList.remove("header-orange")
-      //     this.element.classList.remove("header-white")
-
-          
-      //   })
-      // )
 
       events.push(
         new CoreEventListener("core:init", (event) => {

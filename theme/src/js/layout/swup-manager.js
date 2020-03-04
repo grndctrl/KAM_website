@@ -5,7 +5,12 @@ import { zenscrollManager } from "./zenscroll-manager"
 
 class SwupManager extends CoreModule {
   init() {
-    this.swup = new Swup()
+    this.swup = new Swup({
+      linkSelector:
+      'a[href^="' +
+      window.location.origin +
+      '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup]), a[href^="#"]:not([target="_blank"])',
+    })
     this.element = document.querySelector("#swup")
 
     

@@ -5,10 +5,10 @@
 
       {% for event in fields.events %}
 
-        <a target="_blank" href="{{ event.url }}">
+        <a target="_blank" data-no-swup href="{{ event.url }}">
           <div class="row flex-wrap facebook-event">
             <div class="col w-full lg:ml-1/12 lg:w-1/12">
-              <div class="font-label lg:mt-3">{{ event.date|date('j/n/Y')|event_date }}</div>
+              <div class="font-label lg:mt-3">{{ event.date|event_date }}</div>
             </div>
             <div class="col w-full lg:w-9/12">
               <h2 class="font-h2">{{event.title}}</h2>
@@ -18,9 +18,9 @@
 
       {% endfor %}
 
-      <div class="row pt-16 md:pt-10 lg:pt-16 pb-1">
+      <div class="row overflow-hidden pt-16 md:pt-10 lg:pt-16 pb-1">
         <div class="col mx-auto md:ml-0 lg:mx-2/12">
-          <a target="_blank" href="{{ agenda_url }}" class="font-label anim-underline anim-underline-out">complete agenda</a>
+          <a target="_blank" data-no-swup href="{{ agenda_url }}" class="font-label anim-underline anim-underline-out">complete agenda</a>
         </div>
       </div>
 
