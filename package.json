@@ -12,7 +12,7 @@
     "serve": "docker kill $(docker ps -q); docker-compose up -d",
     "stop": "docker-compose down --volumes",
     "watch": "webpack --config webpack.dev.js --watch",
-    "rsync": "rsync -r -v --exclude-from=.rsyncexclude \"$(npx json -f './config/rsync.json' 'source')\" \"$(npx json -f './config/rsync.json' 'target')\""
+    "rsync": "rsync -r -v --exclude-from=./config/.rsyncexclude \"$(npx json -f './config/rsync.json' 'source')\" \"$(npx json -f './config/rsync.json' 'target')\""
   },
   "author": "",
   "license": "ISC",

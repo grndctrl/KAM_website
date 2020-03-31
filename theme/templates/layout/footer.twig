@@ -8,31 +8,26 @@
       <div class="col w-10/12 mx-auto flex flex-wrap justify-between">
         <div class="w-full md:w-6/12 lg:w-auto flex-shrink pb-8 md:pb-10">
           <p class="text-center">
-            Bar & shop<br>
-            Boschstraat 31<br>
-            4811 GA, Breda
+            {{ global_contact.address|nl2br }}
           </p>
         </div>
         <div class="w-full md:w-6/12 lg:w-auto flex-shrink pb-8 md:pb-10">
           <p class="text-center">
             Contact<br>
-            076 888 8708<br>
-            info@kamu-breda.nl
+            {{ global_contact.phone }}<br>
+            <a href="mailto:{{ global_contact.email }}">{{ global_contact.email }}</a>
           </p>
         </div>
         <div class="w-full md:w-6/12 lg:w-auto flex-shrink pb-8 md:pb-10">
           <p class="text-center">
             Follow us<br>
-            instagram<br>
-            facebook
+            <a href="{{ global_contact.instagram }}">instagram</a><br>
+            <a href="{{ global_contact.facebook }}">facebook</a>
           </p>
         </div>
         <div class="w-full md:w-6/12 lg:w-auto flex-shrink pb-8 md:pb-10">
           <p class="text-center">
-            Openingstijden<br>
-            Ma-Vr: 09:00 - 17:30<br>
-            Zaterdag: 09:00 - 17:00<br>
-            Zondag: 11:00 - 17:00
+            {{ global_contact.opening_hours|nl2br }}
           </p>
         </div>
       </div>
